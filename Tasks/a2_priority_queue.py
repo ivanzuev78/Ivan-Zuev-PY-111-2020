@@ -5,7 +5,7 @@ Queue priorities are from 0 to 10
 """
 from typing import Any
 
-from _collections import deque
+# from _collections import deque
 
 COUNT_PRIORITY = 11
 priority_queue = {p: [] for p in range(COUNT_PRIORITY)}
@@ -46,7 +46,10 @@ def peek(ind: int = 0, priority: int = 0) -> Any:
     :return: peeked element
     """
     global COUNT_PRIORITY, priority_queue
-
+    full_que = []
+    for i in range(COUNT_PRIORITY):
+        full_que += priority_queue[i]
+    return full_que[ind]
     # Дописть
 
     return None
