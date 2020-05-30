@@ -2,7 +2,8 @@
 Taylor series
 """
 from typing import Union
-
+from math import factorial
+from itertools import count
 
 def ex(x: Union[int, float]) -> float:
     """
@@ -11,8 +12,14 @@ def ex(x: Union[int, float]) -> float:
     :param x: x value
     :return: e^x value
     """
-    print(x)
-    return 0
+    result = 0
+    for n in count():
+        delta = (x ** n) / factorial(n)
+        result += delta
+        if delta < 0.0001:
+            break
+
+    return result
 
 
 def sinx(x: Union[int, float]) -> float:
@@ -22,5 +29,11 @@ def sinx(x: Union[int, float]) -> float:
     :param x: x value
     :return: sin(x) value
     """
-    print(x)
-    return 0
+    result = 0
+    for n in count():
+        delta = (-1) ** n * ( x ** (2 * n + 1) / factorial(2 * n + 1))
+        result_prev = result
+        result += delta
+        if abs(result - result_prev) < 0.0001:
+            break
+    return result
