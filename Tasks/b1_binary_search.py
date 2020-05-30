@@ -16,6 +16,23 @@ def binary_search(elem: int, arr: Sequence) -> Optional[int]:
     left_board = 0
     right_board = len(arr)
     while True:
-        if elem == arr[int((left_board + right_board) / 2)]:
+        actual = int((left_board + right_board) / 2)
+        if elem == arr[actual]:
+            # return actual
+            sdvig = 1
+            while True:
+                if actual - sdvig < 0:
+                    return 0
+                elif elem == arr[actual - sdvig]:
+                    sdvig += 1
+                else:
+                    return actual - sdvig + 1
+        elif right_board - left_board == 1:
+            return None
+        elif elem > arr[actual]:
+            left_board = actual
+        elif elem < arr[actual]:
+            right_board = actual
+
 
     return None
