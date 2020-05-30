@@ -9,7 +9,13 @@ def binary_search(elem: int, arr: Sequence) -> Optional[int]:
     :param arr: array where element is to be found
     :return: Index of element if it's presented in the arr, None otherwise
     """
-    for ind, val in enumerate(arr):
-        if val == elem:
-            return ind
+    if elem < arr[0]:
+        return None
+    elif elem > arr[-1]:
+        return None
+    left_board = 0
+    right_board = len(arr)
+    while True:
+        if elem == arr[int((left_board + right_board) / 2)]:
+
     return None
