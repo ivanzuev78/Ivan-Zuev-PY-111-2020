@@ -34,10 +34,5 @@ def binary_search(elem: int, arr: Sequence) -> Optional[int]:
         else:
             return actual + result
     elif elem < arr[actual]:
-        result =  binary_search(elem, arr[0:actual])
-        if not result:  # Проверка, возвращается None или нет
-            return result  # Если возвращается None, прокидываем его дальше
-        else:
-            return result
+        return binary_search(elem, arr[0:actual])
 
-    return None
