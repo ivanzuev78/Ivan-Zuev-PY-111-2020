@@ -21,9 +21,9 @@ def sort(container: List[int]) -> List[int]:
                 start_ind += 1
             while container[end_ind] > opora:  # Ищем элемент справа больше опорного
                 end_ind -= 1
-            if end_ind > start_ind:  # Меняем местами, если они друг друга не обошли
+            if end_ind > start_ind:  # Меняем местами, если индексы друг друга не обошли
                 container[start_ind], container[end_ind] = container[end_ind], container[start_ind]
-            if start_ind - end_ind < 1:  # Если они друг друга обошли, прекращаем сортировку и сортируем правый и левый кусок
+            if start_ind - end_ind < 1:  # Если индексы друг друга обошли, прекращаем сортировку и сортируем правый и левый кусок
                 local_search = False
                 local_sort(start, end_ind)  # Сортируем левый кусок
                 local_sort(start_ind, end)  # Сортируем правый кусок
